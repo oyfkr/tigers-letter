@@ -2,13 +2,16 @@ package chat.tigersnews.controller
 
 import chat.tigersnews.controller.request.UserCreateRequest
 import chat.tigersnews.controller.request.UserModifyRequest
+import chat.tigersnews.service.MailService
 import chat.tigersnews.service.UserService
 import org.springframework.http.ResponseEntity
 import org.springframework.web.bind.annotation.*
 
-@RestController("/rest")
+@RestController
+@RequestMapping("/rest")
 class UserInfoController(
-    private val userService: UserService
+    private val userService: UserService,
+    private val mailService: MailService
 )  {
 
     @PostMapping("/user")
@@ -23,6 +26,14 @@ class UserInfoController(
     fun disableUser(@RequestBody userModifyRequest: UserModifyRequest): ResponseEntity<Any> {
 
         userService.disableUser(userModifyRequest)
+
+        return ResponseEntity.ok("success")
+    }
+
+    @GetMapping("/mail-test")
+    fun sendMail() : ResponseEntity<Any> {
+
+        mailService.sendMail()
 
         return ResponseEntity.ok("success")
     }
