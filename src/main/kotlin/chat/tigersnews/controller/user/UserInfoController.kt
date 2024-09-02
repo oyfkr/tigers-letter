@@ -1,7 +1,7 @@
-package chat.tigersnews.controller
+package chat.tigersnews.controller.user
 
-import chat.tigersnews.controller.request.UserCreateRequest
-import chat.tigersnews.controller.request.UserModifyRequest
+import chat.tigersnews.controller.user.request.UserCreateRequest
+import chat.tigersnews.controller.user.request.UserModifyRequest
 import chat.tigersnews.service.MailService
 import chat.tigersnews.service.UserService
 import org.springframework.http.ResponseEntity

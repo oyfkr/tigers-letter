@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>API Call Example</title>
+    <style>
+        .container {
+            width: 300px;
+            margin: 0 auto;
+            margin-top: 100px;
+            text-align: center;
+        }
+        input[type="text"] {
+            width: 80%;
+            padding: 8px;
+            margin-bottom: 10px;
+        }
+        button {
+            padding: 10px 20px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <h1>tigers 레터 이메일 등록하기</h1>
+    <form id = "apiForm">
+        <input type="text" id="email" name="email" placeholder="이메일 입력" required />
+        <br />
+        <button type="button" onclick="sendData()">API 호출</button>
+    </form>
+</div>
+
+<script>
+    function sendData() {
+        const email = document.getElementById('email').value;
+        const userCreateRequest = {
+            email : email
+        };
+
+        fetch('http://localhost:8080/rest/user', {
+            method: 'POST',
+            headers : {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(userCreateRequest),
+        }).then(response => response.text())
+            .then(data => {
+                console.log(data);
+                alert('서버 응답: ' + data);
+            })
+            .catch(error => {
+                console.error('Error:', error);
+                alert('에러 발생: ' + error);
+            });
+    }
+</script>
+</body>
+</html>

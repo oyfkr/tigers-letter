@@ -32,6 +32,11 @@ dependencies {
 
 	// 이메일
 	implementation("org.springframework.boot:spring-boot-starter-mail")
+
+	// 타임리프
+	implementation("org.springframework.boot:spring-boot-starter-thymeleaf:3.2.5")
+
+
 }
 
 kotlin {
