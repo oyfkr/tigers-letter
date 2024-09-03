@@ -15,4 +15,10 @@ class BasicController {
         model.addAttribute("userCreateRequest", UserCreateRequest(null))
         return "registerEmail"
     }
+
+    @GetMapping("/disable")
+    fun disable(model: Model): String {
+
+        return "disableEmail"
+    }
 }
