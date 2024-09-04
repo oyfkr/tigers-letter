@@ -37,14 +37,15 @@
     </form>
 </div>
 
-<script>
+<script th:inline="javascript">
     function sendData() {
+        var apiUrl = /*[[${apiUrl}]]*/ 'default url';
         const email = document.getElementById('email').value;
         const userCreateRequest = {
             email : email
         };
 
-        fetch('http://localhost:8080/rest/user', {
+        fetch(apiUrl, {
             method: 'POST',
             headers : {
                 'Content-Type': 'application/json',

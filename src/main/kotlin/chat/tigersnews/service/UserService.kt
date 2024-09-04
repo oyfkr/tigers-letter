@@ -25,6 +25,8 @@ class UserService(
     @Transactional
     fun disableUser(userModifyRequest: UserModifyRequest) {
 
+        userModifyRequest.email ?: throw IllegalArgumentException("이메일이 없는 요청입니다.")
+
         val user = userRepository.findByEmail(userModifyRequest.email).orElseThrow { IllegalStateException("그런 이메일은 없어") }
 
         user.enabled = false
