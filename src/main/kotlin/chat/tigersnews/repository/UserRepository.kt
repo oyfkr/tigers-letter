@@ -7,4 +7,5 @@ import java.util.*
 interface UserRepository : JpaRepository<UserInfo, Long> {
 
     fun findByEmail(email: String): Optional<UserInfo>
+    fun findAllByEnabled(enabled: Boolean): List<UserInfo>
 }
