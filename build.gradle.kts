@@ -36,7 +36,12 @@ dependencies {
 	// 타임리프
 	implementation("org.springframework.boot:spring-boot-starter-thymeleaf:3.2.5")
 
+	// 스케줄러를 위한 quartz
+	implementation("org.springframework.boot:spring-boot-starter-quartz:3.2.4")
 
+	// 로그 디펜던시
+	implementation("io.github.oshai:kotlin-logging-jvm:5.1.1")
+	implementation("org.jetbrains.kotlinx:kotlinx-serialization-json:1.3.3")
 }
 
 kotlin {
