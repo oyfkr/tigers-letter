@@ -42,6 +42,10 @@ dependencies {
 	// 로그 디펜던시
 	implementation("io.github.oshai:kotlin-logging-jvm:5.1.1")
 	implementation("org.jetbrains.kotlinx:kotlinx-serialization-json:1.3.3")
+
+	// postgresql
+	implementation("org.postgresql:postgresql:42.7.3")
+
 }
 
 kotlin {
