@@ -1,0 +1,38 @@
+#version: '3'
+#services:
+#  app:
+#    image: tiger-letter-app  # Spring Boot 애플리케이션 이미지
+#    ports:
+#      - "8080:8080"
+#    environment:
+#      - SPRING_DATASOURCE_URL=jdbc:postgresql://PostgreSQL:5432/tigers
+#      - SPRING_DATASOURCE_USERNAME=ogh
+#      - SPRING_DATASOURCE_PASSWORD=1234
+#    networks:
+#      - my-network
+#
+#networks:
+#  my-network:
+#    external: true  # 기존 네트워크를 사용하도록 설정
+
+
+version: '3'
+services:
+  app:
+    image: tiger-letter-app  # Spring Boot 애플리케이션 이미지
+    ports:
+      - "8080:8080"
+    environment:
+      - SPRING_DATASOURCE_URL=jdbc:postgresql://db:5432/tigers
+      - SPRING_DATASOURCE_USERNAME=ogh
+      - SPRING_DATASOURCE_PASSWORD=1234
+    depends_on:
+      - db  # db 서비스가 준비된 후 애플리케이션이 실행되도록 설정
+  db:
+    image: postgres  # PostgreSQL 이미지
+    environment:
+      POSTGRES_DB: tigers
+      POSTGRES_USER: ogh
+      POSTGRES_PASSWORD: 1234
+    ports:
+      - "5432:5432"
