@@ -2,13 +2,12 @@ package chat.tigersnews.scheduler.jobs
 
 import chat.tigersnews.service.MailService
 import org.quartz.JobExecutionContext
-import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.context.ApplicationContext
 import org.springframework.scheduling.quartz.QuartzJobBean
 import org.springframework.stereotype.Component
 
 @Component
-class MondayMorningJob : QuartzJobBean() {
+class DailyMailJob : QuartzJobBean() {
     private lateinit var mailService: MailService
 
     override fun executeInternal(context: JobExecutionContext) {
